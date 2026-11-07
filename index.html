@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRANTLY — Unified Scholarship Discovery & Management</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans">
+
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i data-lucide="graduation-cap" class="w-8 h-8 text-amber-300"></i>
+                <span class="text-2xl font-bold tracking-tight">GRANTLY</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="nav-discover" class="px-3 py-2 bg-indigo-700 rounded-lg text-sm font-medium hover:bg-indigo-800 transition">Discover</button>
+                <button id="nav-tracker" class="px-3 py-2 bg-indigo-500 rounded-lg text-sm font-medium hover:bg-indigo-400 transition flex items-center space-x-1">
+                    <span>Saved Apps</span>
+                    <span id="saved-count" class="bg-amber-400 text-indigo-900 rounded-full px-2 py-0.5 text-xs font-bold">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-indigo-900 text-white py-12 px-4 border-b border-indigo-800">
+        <div class="max-w-4xl mx-auto text-center space-y-4">
+            <h1 class="text-3xl md:text-5xl font-extrabold">Simplify Your Scholarship Journey</h1>
+            <p class="text-indigo-200 text-base md:text-lg">Discover, track, and apply for financial assistance all in one unified portal.</p>
+
+            <!-- Search & Filters -->
+            <div class="mt-8 bg-white text-slate-800 p-4 rounded-xl shadow-lg space-y-4 md:space-y-0 md:flex md:space-x-4 items-center">
+                <div class="flex-1 relative">
+                    <i data-lucide="search" class="w-5 h-5 absolute left-3 top-3 text-slate-400"></i>
+                    <input type="text" id="search-input" placeholder="Search by title, field, or keywords..." class="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div class="w-full md:w-48">
+                    <select id="category-filter" class="w-full py-2 px-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white">
+                        <option value="all">All Categories</option>
+                        <option value="Merit-Based">Merit-Based</option>
+                        <option value="Need-Based">Need-Based</option>
+                        <option value="STEM">STEM</option>
+                        <option value="Minority / Inclusion">Minority / Inclusion</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl mx-auto px-4 py-8 w-full">
+        <!-- Discover View -->
+        <section id="discover-view">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-slate-900">Available Scholarships</h2>
+                <span id="results-count" class="text-sm text-slate-500">Showing 4 results</span>
+            </div>
+            <div id="scholarships-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic Content -->
+            </div>
+        </section>
+
+        <!-- Saved Tracker View -->
+        <section id="tracker-view" class="hidden">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">My Application Tracker</h2>
+            <div id="saved-scholarships-list" class="space-y-4">
+                <!-- Saved Content -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Detailed View -->
+    <div id="detail-modal" class="fixed inset-0 bg-slate-900/50 hidden backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full p-6 relative space-y-4">
+            <button id="close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <span id="modal-category" class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs font-semibold">Category</span>
+            <h3 id="modal-title" class="text-xl font-bold text-slate-900">Scholarship Name</h3>
+            <p id="modal-amount" class="text-2xl font-black text-emerald-600">₹0 / year</p>
+            <div class="space-y-2 text-sm text-slate-600">
+                <p><strong>Eligibility:</strong> <span id="modal-eligibility">N/A</span></p>
+                <p><strong>Deadline:</strong> <span id="modal-deadline">N/A</span></p>
+                <p id="modal-description">Description text...</p>
+            </div>
+            <div class="pt-4 border-t flex space-x-3">
+                <button id="modal-save-btn" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 rounded-lg transition">Save to My List</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 py-6 text-center text-sm border-t border-slate-700">
+        <p>GRANTLY — Developed with ❤️ by Ranjitha for THE OUTPOST Frontend Arena 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
